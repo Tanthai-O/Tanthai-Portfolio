@@ -14,54 +14,30 @@ export const SKILLS = [
 
 export const PROJECTS = [
   {
-    tag: "ERP",
-    title: "Mechkey-Typing",
-    desc: "Enterprise-grade HR system with role-based access, approval workflows, balance tracking, and analytics.",
-    stack: ["Laravel 11", "PHP 8.3", "MySQL", "Eloquent"],
-    year: "2025",
-    repo: "#",
-    demo: "#",
-  },
-  {
-    tag: "Computer Vision",
-    title: "Lifting Risk Assessment System",
-    desc: "Enterprise-style ergonomic assessment system for manual lifting tasks. Supports webcam/video input, employee hierarchy management, real-time risk monitoring, LH Index calculation, and exportable compliance reports.",
-    stack: [
-      "Python 3.10",
-      "PySide6",
-      "OpenCV",
-      "MediaPipe",
-      "TensorFlow/Keras",
-      "scikit-learn",
-      "SQLite",
-      "ReportLab",
-      "openpyxl",
-      "bcrypt",
-    ],
-    year: "2025",
-    repo: "#",
-    demo: "#",
-    highlights: [
-      "Login with role-based access (Admin / Assessor)",
-      "Factory → Branch → Department → Workline → Employee hierarchy",
-      "Real-time assessment from webcam or uploaded video",
-      "MediaPipe pose detection for hand position, torso twist, and lift counting",
-      "Hybrid AI assessment (posture + lifting models) with rule-based fallback",
-      "LH Index / RWL calculation based on NIOSH-style workflow",
-      "Uncertainty tracking with manual review queue",
-      "SQLite database with assessment and per-frame storage",
-      "Standard PDF and Excel export for reporting",
-    ],
-    architecture: [
-      "main_qt.py → MainWindow",
-      "src/qt_gui → UI screens",
-      "src/core → CV / AI / risk logic",
-      "src/qt_utils → database, export, security",
-      "src/utils/constants.py → RWL, frequency, risk thresholds",
-    ],
-    status:
-      "Functional prototype for graduation project; not full production deployment",
-  },
+        tag: "Web App",
+        year: "2026",
+        title: "MechKey Typing",
+        desc: "An immersive mechanical keyboard sound simulator and typing test platform. Features real switch soundpacks (Mechvibes format), WPM tracking, per-character accuracy, 8 themes, 6 keyboard layouts, and a local leaderboard.",
+        stack: ["React 18", "Vite", "Web Audio API", "Vanilla CSS"],
+        repo: "https://github.com/Tanthai-O/Mechkey-Typing",
+        demo: "https://mechkey-typing.vercel.app/",
+      },
+      {
+        tag: "Computer Vision",
+        title: "Lifting Risk Assessment System",
+        desc: "Real-time lifting risk assessment using pose tracking, hybrid AI evaluation, LH Index scoring, and PDF/Excel reporting for industrial safety teams.",
+        stack: [
+          "Python",
+          "PySide6",
+          "OpenCV",
+          "MediaPipe",
+          "TensorFlow",
+          "SQLite",
+        ],
+        year: "2025",
+        repo: "https://github.com/Tanthai-O/Real-time-Lifting-posture-detection",
+        demo: "https://github.com/Tanthai-O/Real-time-Lifting-posture-detection",
+      },
 ];
 
 export const EXPERIENCE = [
@@ -101,6 +77,6 @@ export const TERMINAL_CMDS = {
   contact: () =>
     `email     → t.orahunta@gmail.com\ngithub    → github.com/Tanthai-O\nlinkedin  → linkedin.com/in/tanthai`,
   projects: () =>
-    `[1] leave management erp  — laravel 11 · 2025\n[2] chefvy                — react · 2025\n[3] devtracker            — next.js · 2024`,
+    `[1] mechkey typing              — react 18 · 2026\n[2] lifting risk assessment     — python · 2025`,
   clear: () => "__CLEAR__",
 };
