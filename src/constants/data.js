@@ -71,7 +71,7 @@ export const TERMINAL_CMDS = {
   help: () =>
     `available commands:\n  whoami     → about me\n  skills     → tech stack\n  contact    → get in touch\n  projects   → featured work\n  clear      → clear terminal`,
   whoami: () =>
-    `tanthai — fullstack developer\nlocation: thailand · remote\nfocus: laravel · react · clean architecture\nstatus: open to work ✓`,
+    `tanthai — junior developer\nlocation: thailand · remote\nfocus: laravel · react · clean architecture\nstatus: open to work ✓`,
   skills: () =>
     `frontend  → react, typescript, tailwind css, node.js\nbackend   → laravel, python, php\ndatabase  → mysql, sqlite\ntools    → git, figma, google colab, xampp`,
   contact: () =>
