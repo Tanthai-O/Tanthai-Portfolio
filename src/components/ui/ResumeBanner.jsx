@@ -27,7 +27,7 @@ export function ResumeBanner() {
       </div>
 
       <a
-        href="src\assets\Tanthai_Orahunta_Resume.pdf"
+        href="public\Tanthai_Orahunta_Resume.pdf"
         download
         style={{
           ...mono,
