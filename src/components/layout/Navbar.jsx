@@ -78,7 +78,7 @@ export function Navbar() {
         </button>
 
         {/* Resume */}
-        <a href="src\assets\Resume-2569.pdf" download style={{
+        <a href="src\assets\Tanthai_Orahunta_Resume.pdf" download style={{
           ...mono, marginLeft: 4,
           background: C.border, color: C.accent,
           border: `1px solid ${C.border2}`,

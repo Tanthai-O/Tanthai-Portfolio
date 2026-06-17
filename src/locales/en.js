@@ -100,7 +100,7 @@ export const en = {
   },
   contact: {
     resume: "Tanthai — Resume",
-    resumeSub: "Tanthai_Resume.pdf · Updated 2026",
+    resumeSub: "Tanthai_Orahunta_Resume.pdf · Updated 2026",
     download: "↓ Download",
     email: "email",
     github: "github",

@@ -100,7 +100,7 @@ export const th = {
   },
   contact: {
     resume: "แทนไทย — เรซูเม่",
-    resumeSub: "Tanthai_Resume.pdf · อัปเดต 2569",
+    resumeSub: "Tanthai_Orahunta_Resume.pdf · อัปเดต 2569",
     download: "↓ ดาวน์โหลด",
     email: "อีเมล",
     github: "github",
