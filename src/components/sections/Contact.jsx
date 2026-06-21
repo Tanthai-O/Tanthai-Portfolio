@@ -2,12 +2,14 @@ import { useState } from "react";
 import { C, mono } from "../../styles/theme";
 import { GITHUB_USER } from "../../constants/data";
 import { useLang } from "../../context/LangContext";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
 import { SectionLabel } from "../ui/SectionLabel";
 import { ResumeBanner } from "../ui/ResumeBanner";
 
 export function Contact() {
   const { t, fading } = useLang();
+  const { isMobile } = useBreakpoint();
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
@@ -28,8 +30,15 @@ export function Contact() {
       <section id="Contact" style={{ maxWidth: 860, margin: "0 auto", padding: "6rem 2rem 9rem" }}>
         <Fade><SectionLabel n="05" label={t.sections.contact} /></Fade>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10, maxWidth: 680, opacity: fading ? 0 : 1, transition: "opacity .18s" }}>
-          <Fade delay={0.05} style={{ gridColumn: "1/-1" }}>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
+          gap: 10,
+          maxWidth: 680,
+          opacity: fading ? 0 : 1,
+          transition: "opacity .18s",
+        }}>
+          <Fade delay={0.05} style={{ gridColumn: isMobile ? "1" : "1/-1" }}>
             <ResumeBanner />
           </Fade>
 

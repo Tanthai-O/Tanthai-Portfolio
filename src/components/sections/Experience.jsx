@@ -1,10 +1,12 @@
 import { C, mono } from "../../styles/theme";
 import { useLang } from "../../context/LangContext";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
 import { SectionLabel } from "../ui/SectionLabel";
 
 export function Experience() {
   const { t, fading } = useLang();
+  const { isMobile } = useBreakpoint();
   const roles = t.experience.roles;
 
   return (
@@ -15,8 +17,14 @@ export function Experience() {
         <div style={{ opacity: fading ? 0 : 1, transition: "opacity .18s" }}>
           {roles.map((e, i) => (
             <Fade key={i} delay={i * 0.07}>
-              <div style={{ display: "grid", gridTemplateColumns: "160px 1fr", gap: "2rem", padding: "1.5rem 0", borderBottom: i < roles.length - 1 ? `1px solid ${C.border}` : "none" }}>
-                <p style={{ ...mono, fontSize: 11, color: C.faint, lineHeight: 1.6, paddingTop: 2 }}>{e.period}</p>
+              <div style={{
+                display: "grid",
+                gridTemplateColumns: isMobile ? "1fr" : "160px 1fr",
+                gap: isMobile ? "0.3rem" : "2rem",
+                padding: "1.5rem 0",
+                borderBottom: i < roles.length - 1 ? `1px solid ${C.border}` : "none",
+              }}>
+                <p style={{ ...mono, fontSize: 11, color: C.faint, lineHeight: 1.6, paddingTop: isMobile ? 0 : 2 }}>{e.period}</p>
                 <div>
                   <p style={{ fontSize: 14, fontWeight: 700, color: C.white, marginBottom: 3 }}>{e.role}</p>
                   <p style={{ ...mono, fontSize: 11, color: C.accent, marginBottom: 7 }}>{e.co}</p>

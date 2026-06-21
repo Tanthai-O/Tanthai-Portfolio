@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { C, mono } from "../../styles/theme";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Pill } from "../ui/Pill";
@@ -9,6 +10,7 @@ export function GitHubStats({ username }) {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(false);
+  const { isMobile } = useBreakpoint();
 
   useEffect(() => {
     Promise.all([
@@ -69,7 +71,7 @@ export function GitHubStats({ username }) {
               </div>
 
               {/* Languages + Top repos */}
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
+              <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: 10 }}>
                 <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 10, padding: "1.2rem 1.4rem" }}>
                   <p style={{ ...mono, fontSize: 10, color: C.accent, fontWeight: 600, letterSpacing: "0.1em", marginBottom: 14 }}>TOP LANGUAGES</p>
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>

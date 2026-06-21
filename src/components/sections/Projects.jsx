@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { C, mono } from "../../styles/theme";
 import { useLang } from "../../context/LangContext";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
 import { SectionLabel } from "../ui/SectionLabel";
 import { Pill } from "../ui/Pill";
 
 export function Projects() {
   const { t, fading } = useLang();
+  const { isMobile } = useBreakpoint();
   const [hovP, setHovP] = useState(null);
 
   return (
@@ -23,8 +25,11 @@ export function Projects() {
                   background: hovP === i ? "#2a2d2e" : C.surface,
                   border: `1px solid ${hovP === i ? C.border2 : C.border}`,
                   borderRadius: 12, padding: "1.6rem 1.8rem",
-                  display: "flex", justifyContent: "space-between",
-                  alignItems: "flex-start", gap: "1.5rem",
+                  display: "flex",
+                  flexDirection: isMobile ? "column" : "row",
+                  justifyContent: "space-between",
+                  alignItems: isMobile ? "flex-start" : "flex-start",
+                  gap: isMobile ? "1rem" : "1.5rem",
                   transition: "all .18s", cursor: "default",
                 }}
                 onMouseEnter={() => setHovP(i)}
@@ -44,7 +49,11 @@ export function Projects() {
                   </div>
                 </div>
 
-                <div style={{ display: "flex", gap: 6, flexShrink: 0, opacity: hovP === i ? 1 : 0, transition: "opacity .18s" }}>
+                <div style={{
+                  display: "flex", gap: 6, flexShrink: 0,
+                  opacity: isMobile || hovP === i ? 1 : 0,
+                  transition: "opacity .18s",
+                }}>
                   <a href={p.repo} target="_blank" rel="noopener noreferrer"
                     style={{ ...mono, background: "transparent", border: `1px solid ${C.border2}`, borderRadius: 6, padding: "6px 12px", fontSize: 11, fontWeight: 600, color: C.muted, textDecoration: "none" }}>
                     {t.projects.code}

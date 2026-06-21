@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { C, mono } from "../../styles/theme";
+import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { TERMINAL_CMDS } from "../../constants/data";
 
 export function Terminal() {
@@ -12,6 +13,7 @@ export function Terminal() {
   const [histIdx, setHistIdx] = useState(-1);
   const endRef = useRef(null);
   const inputRef = useRef(null);
+  const { isMobile } = useBreakpoint();
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [lines]);
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 80); }, [open]);
@@ -51,6 +53,10 @@ export function Terminal() {
     if (e.key === "Escape") setOpen(false);
   };
 
+  const terminalWidth = isMobile ? "calc(100vw - 32px)" : 480;
+  const terminalRight = isMobile ? 16 : 24;
+  const terminalBottom = isMobile ? 72 : 76;
+
   return (
     <>
       <button
@@ -74,8 +80,8 @@ export function Terminal() {
 
       {open && (
         <div style={{
-          position: "fixed", bottom: 76, right: 24, zIndex: 149,
-          width: 480, maxHeight: 340,
+          position: "fixed", bottom: terminalBottom, right: terminalRight, zIndex: 149,
+          width: terminalWidth, maxHeight: 340,
           background: "#141414", border: `1px solid ${C.border2}`,
           borderRadius: 12, overflow: "hidden",
           boxShadow: `0 24px 64px rgba(0,0,0,0.6), 0 0 0 1px ${C.border}`,
