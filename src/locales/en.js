@@ -10,7 +10,7 @@ export const en = {
   hero: {
     available: "available · open to work",
     stack: "Laravel · React · TypeScript · Node.js",
-    focus: "Full-Stack Web · LINE LIFF",
+    focus: "Web Development · LINE Integration",
     location: "Thailand · Remote",
   },
   typewriter: [
@@ -93,7 +93,7 @@ export const en = {
           "HR recruitment web app (DISC questionnaire): applicants complete an online assessment, results are stored for HR; separate Applicant and HR roles.",
           "Took over an internal web app from a previous intern and added role-based access control (RBAC): defined roles, restricted what each role can see, built an admin page and grouped pages by department.",
           "Extended the IT repair-request system into a technician maintenance system integrated with the LINE Messaging API: new requests and status updates are pushed to the technicians' LINE group, and expense requests notify the department manager on LINE and in the web app.",
-          "LINE login linked to employee records: users sign in with LINE and their employee ID, and the stored LINE ID is saved to the company's employee database so they can submit and track repair requests.",
+          "LINE login linked to employee records: users sign in with LINE and their employee ID, which links their LINE account to their employee profile so they can submit and track repair requests.",
           "Enforced per-role page access on the server so pages cannot be reached by typing a URL directly.",
           "IT support: troubleshooting PCs and software, connecting advertising displays and speakers, setting up meeting rooms.",
         ],

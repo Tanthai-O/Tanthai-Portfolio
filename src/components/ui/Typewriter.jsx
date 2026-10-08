@@ -17,8 +17,10 @@ export function Typewriter({ texts, speed = 55, showCursor = true }) {
     } else if (deleting && displayed.length > 0) {
       t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), speed / 2);
     } else if (deleting && displayed.length === 0) {
-      setDeleting(false);
-      setIdx((idx + 1) % texts.length);
+      t = setTimeout(() => {
+        setDeleting(false);
+        setIdx((idx + 1) % texts.length);
+      }, 0);
     }
     return () => clearTimeout(t);
   }, [displayed, deleting, idx, texts, speed]);

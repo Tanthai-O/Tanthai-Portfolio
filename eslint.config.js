@@ -17,5 +17,9 @@ export default defineConfig([
       globals: globals.browser,
       parserOptions: { ecmaFeatures: { jsx: true } },
     },
+    rules: {
+      // JSX usage isn't tracked without eslint-plugin-react, so ignore capitalised names
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
   },
 ])
