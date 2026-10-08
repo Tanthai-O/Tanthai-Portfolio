@@ -9,16 +9,14 @@ export const th = {
   },
   hero: {
     available: "พร้อมรับงาน · กำลังหางาน",
-    stack: "Laravel · React · TypeScript · Node.js",
+    stack: "PHP · MySQL · React · Python",
     focus: "พัฒนาเว็บ · เชื่อมต่อ LINE",
     location: "ประเทศไทย · ทำงานระยะไกลได้",
   },
   typewriter: [
     "Junior Developer",
-    "นักพัฒนา Laravel",
+    "นักพัฒนา PHP",
     "นักพัฒนา React",
-    "นักพัฒนา Node.js",
-    "นักพัฒนา LINE LIFF",
   ],
   sections: {
     skills: "ทักษะ",

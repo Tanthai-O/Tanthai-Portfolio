@@ -32,10 +32,16 @@ export default function App() {
   }, []);
 
   return (
-    <div style={{ fontFamily: "-apple-system,'Inter',sans-serif", background: C.bg, color: C.text, minHeight: "100vh" }}>
+    <div className="app-root" style={{ fontFamily: "-apple-system,'Inter',sans-serif", background: C.bg, color: C.text, minHeight: "100vh" }}>
       <style>{`
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
+        /* Scale the whole UI up on larger screens (everything is sized in px) */
+        :root { --z: 1; }
+        @media (min-width: 1000px) { :root { --z: 1.1; } }
+        @media (min-width: 1280px) { :root { --z: 1.25; } }
+        @media (min-width: 1600px) { :root { --z: 1.4; } }
+        .app-root { zoom: var(--z); }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-track { background: ${C.bg}; }
         ::-webkit-scrollbar-thumb { background: ${C.border2}; border-radius: 99px; }

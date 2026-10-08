@@ -9,16 +9,14 @@ export const en = {
   },
   hero: {
     available: "available · open to work",
-    stack: "Laravel · React · TypeScript · Node.js",
+    stack: "PHP · MySQL · React · Python",
     focus: "Web Development · LINE Integration",
     location: "Thailand · Remote",
   },
   typewriter: [
     "Junior Developer",
-    "Laravel Developer",
+    "PHP Developer",
     "React Developer",
-    "Node.js Developer",
-    "LINE LIFF Developer",
   ],
   sections: {
     skills: "Skills",

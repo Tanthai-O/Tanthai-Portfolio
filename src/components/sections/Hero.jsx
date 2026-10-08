@@ -9,7 +9,7 @@ export function Hero() {
     <section
       id="About"
       style={{
-        minHeight: "91vh",
+        minHeight: "calc(91vh / var(--z, 1))",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
