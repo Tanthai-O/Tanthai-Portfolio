@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { C, mono } from "../../styles/theme";
+import { Confetti } from "./Confetti";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { TERMINAL_CMDS, HIRE_SEQUENCE } from "../../constants/data";
 
@@ -15,10 +16,25 @@ export function Terminal() {
   const inputRef = useRef(null);
   const timers = useRef([]);
   const [busy, setBusy] = useState(false);
+  const [burst, setBurst] = useState(0);
   const { isMobile } = useBreakpoint();
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [lines]);
   useEffect(() => () => timers.current.forEach(clearTimeout), []);
+
+  // Backtick toggles the terminal (unless typing in some other field)
+  useEffect(() => {
+    const onGlobalKey = (e) => {
+      if (e.key !== "`" || e.ctrlKey || e.metaKey || e.altKey) return;
+      const el = document.activeElement;
+      const typing = el && /^(INPUT|TEXTAREA)$/.test(el.tagName) && el !== inputRef.current;
+      if (typing || el?.isContentEditable) return;
+      e.preventDefault();
+      setOpen((o) => !o);
+    };
+    window.addEventListener("keydown", onGlobalKey);
+    return () => window.removeEventListener("keydown", onGlobalKey);
+  }, []);
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 80); }, [open]);
 
   const playHire = () => {
@@ -28,7 +44,7 @@ export function Terminal() {
       t += step.delay;
       timers.current.push(setTimeout(() => {
         setLines((ls) => [...ls, { type: step.type, text: step.text }]);
-        if (i === HIRE_SEQUENCE.length - 1) setBusy(false);
+        if (i === HIRE_SEQUENCE.length - 1) { setBusy(false); setBurst((b) => b + 1); }
       }, t));
     });
   };
@@ -81,9 +97,10 @@ export function Terminal() {
 
   return (
     <>
+      <Confetti burst={burst} />
       <button
         onClick={() => setOpen((o) => !o)}
-        title="Open terminal"
+        title="Open terminal (`)"
         style={{
           ...mono,
           position: "fixed", bottom: 24, right: 24, zIndex: 150,

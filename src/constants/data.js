@@ -83,7 +83,7 @@ export const HIRE_SEQUENCE = [
 
 export const TERMINAL_CMDS = {
   help: () =>
-    `available commands:\n  whoami     → about me\n  skills     → tech stack\n  contact    → get in touch\n  projects   → featured work\n  clear      → clear terminal`,
+    `available commands:\n  whoami     → about me\n  skills     → tech stack\n  contact    → get in touch\n  projects   → featured work\n  neofetch   → system info\n  clear      → clear terminal`,
   whoami: () =>
     `tanthai — junior developer\nlocation: thailand · remote\nfocus: laravel · react · clean architecture\nstatus: open to work ✓`,
   skills: () =>
@@ -92,5 +92,15 @@ export const TERMINAL_CMDS = {
     `email     → ${EMAIL}\ngithub    → github.com/${GITHUB_USER}\nlinkedin  → ${LINKEDIN_LABEL}`,
   projects: () =>
     `[1] mechkey typing              — react 18 · 2026\n[2] lifting risk assessment     — python · 2025`,
+  neofetch: () =>
+    [
+      "   ╭──────╮   tanthai@dev",
+      "   │ </>  │   ───────────",
+      "   │  ▂▂  │   role   junior fullstack",
+      "   │ ▔▔▔▔ │   stack  php · react · python",
+      "   ╰──┬┬──╯   lang   th, en",
+      "    ──┴┴──    from   thailand",
+      "              status open to work ✓",
+    ].join("\n"),
   clear: () => "__CLEAR__",
 };
