@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { C, mono } from "../../styles/theme";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
-import { TERMINAL_CMDS } from "../../constants/data";
+import { TERMINAL_CMDS, HIRE_SEQUENCE } from "../../constants/data";
 
 export function Terminal() {
   const [open, setOpen] = useState(false);
@@ -13,19 +13,41 @@ export function Terminal() {
   const [histIdx, setHistIdx] = useState(-1);
   const endRef = useRef(null);
   const inputRef = useRef(null);
+  const timers = useRef([]);
+  const [busy, setBusy] = useState(false);
   const { isMobile } = useBreakpoint();
 
   useEffect(() => { endRef.current?.scrollIntoView({ behavior: "smooth" }); }, [lines]);
+  useEffect(() => () => timers.current.forEach(clearTimeout), []);
   useEffect(() => { if (open) setTimeout(() => inputRef.current?.focus(), 80); }, [open]);
 
+  const playHire = () => {
+    setBusy(true);
+    let t = 0;
+    HIRE_SEQUENCE.forEach((step, i) => {
+      t += step.delay;
+      timers.current.push(setTimeout(() => {
+        setLines((ls) => [...ls, { type: step.type, text: step.text }]);
+        if (i === HIRE_SEQUENCE.length - 1) setBusy(false);
+      }, t));
+    });
+  };
+
   const run = (cmd) => {
-    const c = cmd.trim().toLowerCase();
-    if (!c) return;
+    const c = cmd.trim().toLowerCase().replace(/\s+/g, " ");
+    if (!c || busy) return;
     setHistory((h) => [c, ...h]);
     setHistIdx(-1);
     const newLines = [...lines, { type: "in", text: `$ ${c}` }];
     const fn = TERMINAL_CMDS[c];
-    if (fn) {
+    if (c === "sudo hire tanthai") {
+      setLines(newLines);
+      playHire();
+      return;
+    }
+    if (c.startsWith("sudo")) {
+      newLines.push({ type: "err", text: "recruiter is not in the sudoers file. This incident will be reported." });
+    } else if (fn) {
       const out = fn();
       if (out === "__CLEAR__") {
         setLines([{ type: "sys", text: `tanthai@dev ~ — type "help" to start` }]);
@@ -101,7 +123,7 @@ export function Terminal() {
             {lines.map((l, i) => (
               <pre key={i} style={{
                 ...mono, fontSize: 12, margin: 0, whiteSpace: "pre-wrap", wordBreak: "break-all",
-                color: l.type === "in" ? C.accent : l.type === "err" ? "#f48771" : l.type === "sys" ? C.muted : C.text,
+                color: l.type === "in" ? C.accent : l.type === "ok" ? "#3fb950" : l.type === "err" ? "#f48771" : l.type === "sys" ? C.muted : C.text,
                 lineHeight: 1.65,
               }}>
                 {l.text}

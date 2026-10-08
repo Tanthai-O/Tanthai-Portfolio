@@ -70,15 +70,26 @@ export const TYPEWRITER_TEXTS = [
   "Clean Code Advocate",
 ];
 
+// Easter egg: `sudo hire tanthai` — each step is printed after `delay` ms
+export const HIRE_SEQUENCE = [
+  { type: "out", delay: 500,  text: "[sudo] password for recruiter: ********" },
+  { type: "out", delay: 900,  text: "authenticating..." },
+  { type: "ok",  delay: 700,  text: "✓ permission granted" },
+  { type: "out", delay: 600,  text: "→ checking candidate: tanthai ........ ok" },
+  { type: "out", delay: 600,  text: "→ skills match ........................ 100%" },
+  { type: "out", delay: 600,  text: "→ drafting offer letter ............... done" },
+  { type: "ok",  delay: 700,  text: `✓ hired. send the offer to ${EMAIL}` },
+];
+
 export const TERMINAL_CMDS = {
   help: () =>
     `available commands:\n  whoami     → about me\n  skills     → tech stack\n  contact    → get in touch\n  projects   → featured work\n  clear      → clear terminal`,
   whoami: () =>
     `tanthai — junior developer\nlocation: thailand · remote\nfocus: laravel · react · clean architecture\nstatus: open to work ✓`,
   skills: () =>
-    `frontend  → react, typescript, tailwind css, node.js\nbackend   → laravel, python, php\ndatabase  → mysql, sqlite\ntools    → git, figma, google colab, xampp`,
+    `frontend  → react, typescript, tailwind css, node.js\nbackend   → laravel, python, php\ndatabase  → mysql, sqlite\ntools     → git, figma, google colab, xampp`,
   contact: () =>
-    `email     → t.orahunta@gmail.com\ngithub    → github.com/Tanthai-O\nlinkedin  → linkedin.com/in/tanthai`,
+    `email     → ${EMAIL}\ngithub    → github.com/${GITHUB_USER}\nlinkedin  → ${LINKEDIN_LABEL}`,
   projects: () =>
     `[1] mechkey typing              — react 18 · 2026\n[2] lifting risk assessment     — python · 2025`,
   clear: () => "__CLEAR__",
