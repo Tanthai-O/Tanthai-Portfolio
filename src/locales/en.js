@@ -101,7 +101,7 @@ export const en = {
       },
       {
         period: "2025 – Present",
-        role: "Fullstack Developer",
+        role: "Junior Developer",
         co: "Personal Projects",
         note: "Building side projects in React and Python, such as MechKey Typing and a lifting risk assessment system.",
       },

@@ -14,7 +14,7 @@ export const th = {
     location: "ประเทศไทย · ทำงานระยะไกลได้",
   },
   typewriter: [
-    "นักพัฒนา Full-Stack",
+    "Junior Developer",
     "นักพัฒนา Laravel",
     "นักพัฒนา React",
     "นักพัฒนา Node.js",
@@ -101,7 +101,7 @@ export const th = {
       },
       {
         period: "2025 – ปัจจุบัน",
-        role: "นักพัฒนา Fullstack",
+        role: "Junior Developer",
         co: "โปรเจคส่วนตัว",
         note: "พัฒนาโปรเจคส่วนตัวด้วย React และ Python เช่น MechKey Typing และระบบประเมินความเสี่ยงการยกของ",
       },

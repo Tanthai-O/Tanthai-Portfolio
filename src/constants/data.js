@@ -46,7 +46,7 @@ export const PROJECTS = [
 export const EXPERIENCE = [
   {
     period: "2024 – Present",
-    role: "Fullstack Developer",
+    role: "Junior Developer",
     co: "Personal Projects",
     note: "Building production-grade systems: ERP, SaaS",
   },
@@ -65,7 +65,7 @@ export const EXPERIENCE = [
 ];
 
 export const TYPEWRITER_TEXTS = [
-  "Fullstack Developer",
+  "Junior Developer",
   "React Developer",
   "Clean Code Advocate",
 ];
@@ -96,7 +96,7 @@ export const TERMINAL_CMDS = {
     [
       "   ╭──────╮   tanthai@dev",
       "   │ </>  │   ───────────",
-      "   │  ▂▂  │   role   junior fullstack",
+      "   │  ▂▂  │   role   junior developer",
       "   │ ▔▔▔▔ │   stack  php · react · python",
       "   ╰──┬┬──╯   lang   th, en",
       "    ──┴┴──    from   thailand",
