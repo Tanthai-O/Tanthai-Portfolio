@@ -3,6 +3,7 @@ import { useLang } from "../../context/LangContext";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
 import { SectionLabel } from "../ui/SectionLabel";
+import { Pill } from "../ui/Pill";
 
 export function Experience() {
   const { t, fading } = useLang();
@@ -29,6 +30,18 @@ export function Experience() {
                   <p style={{ fontSize: 14, fontWeight: 700, color: C.white, marginBottom: 3 }}>{e.role}</p>
                   <p style={{ ...mono, fontSize: 11, color: C.accent, marginBottom: 7 }}>{e.co}</p>
                   <p style={{ fontSize: 13, color: C.muted, lineHeight: 1.75 }}>{e.note}</p>
+                  {e.points && (
+                    <ul style={{ margin: "10px 0 0 1.1rem", display: "flex", flexDirection: "column", gap: 6 }}>
+                      {e.points.map((p, j) => (
+                        <li key={j} style={{ fontSize: 13, color: C.muted, lineHeight: 1.7 }}>{p}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {e.stack && (
+                    <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 12 }}>
+                      {e.stack.map((s) => <Pill key={s} label={s} />)}
+                    </div>
+                  )}
                 </div>
               </div>
             </Fade>

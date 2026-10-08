@@ -1,14 +1,9 @@
-import { useState, useEffect, useRef } from "react";
-import { C, mono } from "./styles/theme";
-import { NAV, SKILLS, PROJECTS, EXPERIENCE, GITHUB_USER, TYPEWRITER_TEXTS } from "./constants/data";
+import { useEffect } from "react";
+import { C } from "./styles/theme";
+import { GITHUB_USER, EMAIL } from "./constants/data";
 
 import { ScrollProgress } from "./components/ui/ScrollProgress";
 import { Terminal } from "./components/ui/Terminal";
-import { Fade } from "./components/ui/Fade";
-import { SectionLabel } from "./components/ui/SectionLabel";
-import { Pill } from "./components/ui/Pill";
-import { Typewriter } from "./components/ui/Typewriter";
-import { ResumeBanner } from "./components/ui/ResumeBanner";
 import { Navbar } from "./components/layout/Navbar";
 import { Footer } from "./components/layout/Footer";
 import { Hero } from "./components/sections/Hero";
@@ -32,7 +27,7 @@ export default function App() {
     console.log("%c ──────────────────────────────────────", s2);
     console.log("%c ✓ Built with React + clean architecture", s3);
     console.log("%c ✓ No frameworks abused in this process", s3);
-    console.log("%c ✓ tanthai.dev@gmail.com", s3);
+    console.log(`%c ✓ ${EMAIL}`, s3);
     console.log("%c ──────────────────────────────────────", s2);
   }, []);
 

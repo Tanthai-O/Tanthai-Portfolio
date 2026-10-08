@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { C, mono } from "../../styles/theme";
-import { GITHUB_USER } from "../../constants/data";
+import { GITHUB_USER, EMAIL, LINKEDIN_URL, LINKEDIN_LABEL } from "../../constants/data";
 import { useLang } from "../../context/LangContext";
 import { useBreakpoint } from "../../hooks/useBreakpoint";
 import { Fade } from "../ui/Fade";
@@ -13,15 +13,15 @@ export function Contact() {
   const [copied, setCopied] = useState(false);
 
   const copy = () => {
-    navigator.clipboard?.writeText("t.orahunta@gmail.com");
+    navigator.clipboard?.writeText(EMAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 2200);
   };
 
   const links = [
-    { label: t.contact.email,    val: "t.orahunta@gmail.com",       copyable: true },
+    { label: t.contact.email,    val: EMAIL,       copyable: true },
     { label: t.contact.github,   val: `github.com/${GITHUB_USER}`, href: `https://github.com/${GITHUB_USER}` },
-    { label: t.contact.linkedin, val: "linkedin.com/in/tanthai",   href: "https://www.linkedin.com/in/tanthai-orahunta-82336b345/" },
+    { label: t.contact.linkedin, val: LINKEDIN_LABEL, href: LINKEDIN_URL },
   ];
 
   return (
