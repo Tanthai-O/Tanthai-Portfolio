@@ -2,6 +2,8 @@
 
 Personal portfolio website styled like a code editor / terminal. Built with React and Vite.
 
+**Live:** https://tanthai-portfolio.vercel.app/
+
 ## Features
 
 - Sections: Hero (typewriter), Skills, Projects, GitHub Activity, Experience, Contact
